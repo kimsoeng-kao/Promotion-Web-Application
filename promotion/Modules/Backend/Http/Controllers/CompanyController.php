@@ -21,7 +21,7 @@ class CompanyController extends Controller
     {
         return view('backend::companies.create');
     }
-    // save user
+    // save 
     public function save(Request $r)
     {
         $data = array(
@@ -47,8 +47,8 @@ class CompanyController extends Controller
         }
     }
 
-       //delete user
-       public function delete(Request $r)
+    //delete 
+    public function delete(Request $r)
        {
            DB::table('companies')
                ->where('comId', $r->comId)
@@ -56,6 +56,7 @@ class CompanyController extends Controller
            $r->session()->flash('success', 'Data has been removed!');
            return redirect('backend/company');
        }
+
     //    show for edit
     public function edit(Request $r)
     {
@@ -75,9 +76,8 @@ class CompanyController extends Controller
         $i = DB::table('companies')
         ->where('comId', $r->comId)
         ->update($data);
-        return redirect('backend');
+        return redirect('backend/company');
     }
-
 
     // user logout
     public function logout()
