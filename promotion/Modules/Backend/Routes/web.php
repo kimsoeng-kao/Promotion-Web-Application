@@ -19,6 +19,8 @@ Route::prefix('backend')->group(function() {
     Route::get('user/create', 'UserController@create');
     Route::post('user/save', 'UserController@save');
     Route::get('user/delete', 'UserController@delete');
+    Route::get('user/edit', 'UserController@edit');
+    Route::post('user/update', 'UserController@update');
 
     //Promotion routes
     Route::get('/promotion', 'PromotionController@index');

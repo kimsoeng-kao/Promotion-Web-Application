@@ -56,6 +56,23 @@ class UserController extends Controller
             return redirect('backend/user/create')->withInput();
         }
     }
+    public function edit(Request $r)
+    {
+        $data['users'] = DB::table('users')
+            ->where('id', $r->id)
+            ->get();
+        return view('backend::users.edit', $data);
+    }
+    public function update(Request $r) {
+        $data = array(
+            'username' => $r->username,
+            'email' => $r->email,
+        );
+        $i = DB::table('users')
+        ->where('id', $r->id)
+        ->update($data);
+        return redirect('backend/user');
+    }
 
     //delete user
     public function delete(Request $r)

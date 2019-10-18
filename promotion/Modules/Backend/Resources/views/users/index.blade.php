@@ -52,7 +52,7 @@
                                 <i class="fa fa-trash"></i>
                             </a>
                             &nbsp;&nbsp;
-                            <a href="#" class="text-success">
+                            <a  href="{{url('backend/user/edit?id='.$u->id)}} class="text-success">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </td>

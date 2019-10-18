@@ -2,13 +2,13 @@
 @section('content')
 <div class="card card-gray">
     <div class="card-block">
-        <h5>Update Company
+        <h5>Update User
             <a href="{{url('backend/company')}}" class="btn btn-primary btn-sm btn-oval">
             <i class="fa fa-reply"></i> Back</a>
         </h5>
         <hr>
-        @foreach ($companies as $c)
-        <form action="{{url('backend/company/update')}}" method="POST">
+        @foreach ($users as $c)
+        <form action="{{url('backend/user/update')}}" method="POST">
             @csrf
             <div>
                 @if(Session::has('success'))
@@ -33,24 +33,24 @@
                     @endif
                     @php($i=1)
                       
-                        <input type="hidden" id="comId" 
-                                name='comId' value="{{($c->comId)}}">
-                        <label for="">Company Name :</label>
+                        <input type="hidden" id="id" 
+                                name='id' value="{{($c->id)}}">
+                        <label for="">Username :</label>
                         <input type="text" class="form-control" id="name" 
-                                name='name' required autofocus value="{{($c->comName)}}">
+                                name='username' required autofocus value="{{($c->username)}}">
                         <br>
-                        <label for="">Description :</label>
+                        <label for="">Email :</label>
                         <input type="text" class="form-control" id="description" 
-                                name='description' required autofocus value="{{($c->description)}}">
-                   <br>
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                            <button class="btn btn-primary btn-oval">
-                                <i class="fa fa-save"></i> Update
-                            </button>
+                                name='email' required autofocus value="{{($c->email)}}">
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <button class="btn btn-primary btn-oval">
+                                    <i class="fa fa-save"></i> Update
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
                 @endforeach
             </div>
         </div>

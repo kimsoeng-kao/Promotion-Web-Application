@@ -8,12 +8,13 @@
         </h5>
         <hr>
         @foreach ($promotion as $p)
-        <form action="{{url('backend/promotion/update')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('backend/promotion/update')}}" method="POST">
+            @csrf
             <div class="form-group row">
                 <label for="proId" class="col-sm-4">Promotion Id
                     <span class="text-danger">*</span></label>
                 <div class="col-sm-8">
-                    {{$p->proId}}
+                    <!-- {{$p->proId}} -->
                     <input type="hidden" value="{{$p->proId}}">
                 </div>
             </div>
@@ -64,7 +65,7 @@
                     <span class="text-danger">*</span></label>
                 <div class="col-sm-8">
                     <select class="form-control" name="catId" value="{{$p->catId}}">
-                        <option></option>
+                        <option value="{{$p->catId}}" style="color:white"></option>
                         @foreach ($categories as $c)
                         <option value="{{$c->catId}}">{{$c->catName}}</option>
                         @endforeach
@@ -76,7 +77,7 @@
                     <span class="text-danger">*</span></label>
                 <div class="col-sm-8">
                     <select class="form-control" name="comId" value="{{$p->comId}}">
-                        <option></option>
+                        <option value="{{$p->comId}}" style="color:white"></option>
                         @foreach ($companies as $c)
                         <option value="{{$c->comId}}">{{$c->comName}}</option>
                         @endforeach

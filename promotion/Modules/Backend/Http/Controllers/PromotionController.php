@@ -128,8 +128,9 @@ class PromotionController extends Controller
             'img'=> "img"
         );
         $i = DB::table('promotions')
-        ->where('proId', $re->id)
+        ->where('proId', "7")
         ->update($data);
+        return redirect('backend/promotion');
     }
 
     /**

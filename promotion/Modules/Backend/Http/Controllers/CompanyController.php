@@ -27,7 +27,7 @@ class CompanyController extends Controller
         $data = array(
             'comName' => $r->name,
             'description' => $r->description,
-            'createDate' => "2015-12-18 00:00:00",
+            'createDate' => "2019-12-18 00:00:00",
             'img' => "image"
         );
        
@@ -65,14 +65,7 @@ class CompanyController extends Controller
         return view('backend::companies.edit', $data);
     }
 
-    public function kk(Request $r) {
-        // $comName = $request->input('name');
-        // $description = $request->input('description');
-        // $id= $request->$request->input('comId');
-        // DB::update('update companies set comName = '',description='', where id = ,[$comName,$description,$id]);
-        // echo "Record updated successfully.
-        // ";
-        
+    public function update(Request $r) {
         $data = array(
             'comName' => $r->name,
             'description' => $r->description,
@@ -82,7 +75,7 @@ class CompanyController extends Controller
         $i = DB::table('companies')
         ->where('comId', $r->comId)
         ->update($data);
-        // return redirect('backend/company');
+        return redirect('backend');
     }
 
 
